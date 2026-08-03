@@ -58,6 +58,8 @@ quoteForm?.addEventListener('submit', (event) => {
     `Company: ${data.get('company') || '—'}`,
     `Email: ${data.get('email')}`,
     `Project Type: ${data.get('type')}`,
+    `Available Inputs: ${data.get('inputs') || 'Not specified'}`,
+    `Preferred Turnaround: ${data.get('turnaround') || 'Not specified'}`,
     '',
     'Project Details:',
     data.get('details')
