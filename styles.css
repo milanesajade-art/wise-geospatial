@@ -56,3 +56,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   html{scroll-behavior:auto}
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+/* August launch-pass additions */
+.fast-start{background:#10232d;color:#fff;border-top:1px solid #203945}
+.fast-start .section-head>p:last-child,.fast-start .section-head.split>p{color:#9db0b9}
+.start-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #2a4653;border-left:1px solid #2a4653}
+.start-grid article{padding:30px;border-right:1px solid #2a4653;border-bottom:1px solid #2a4653;min-height:220px}
+.start-grid article>span{font-size:9px;color:#5f7f8c;letter-spacing:.15em}
+.start-grid h3{font-size:22px;margin:28px 0 10px}
+.start-grid p{margin:0;color:#96aab4;font-size:13.5px}
+.start-band{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:24px 26px;margin-top:16px;border:1px solid #2a4653;border-radius:12px;background:#0b1b24}
+.start-band strong,.start-band span{display:block}
+.start-band strong{font-family:"Space Grotesk";font-size:18px}
+.start-band span{margin-top:4px;color:#89a0aa;font-size:11.5px}
+.response-note{display:block;margin-top:12px;max-width:420px;color:#6f8189;font-size:10.5px;line-height:1.55}
+@media(max-width:900px){.start-grid{grid-template-columns:1fr}.start-band{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.start-grid article{min-height:auto;padding:24px}.start-band{padding:20px}.start-band .btn{width:100%}}
