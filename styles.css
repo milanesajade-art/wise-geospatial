@@ -72,3 +72,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .response-note{display:block;margin-top:12px;max-width:420px;color:#6f8189;font-size:10.5px;line-height:1.55}
 @media(max-width:900px){.start-grid{grid-template-columns:1fr}.start-band{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.start-grid article{min-height:auto;padding:24px}.start-band{padding:20px}.start-band .btn{width:100%}}
+
+
+/* Capability image fill pass */
+.capability-card{display:block;position:relative;padding:0;overflow:hidden;min-height:0}
+.capability-card>.num{position:absolute;z-index:3;top:14px;left:14px;padding:7px 9px;border:1px solid rgba(255,255,255,.28);border-radius:4px;background:rgba(7,20,27,.76);backdrop-filter:blur(8px);color:#d7e5e9;font-size:8px;font-weight:800;letter-spacing:.14em}
+.capability-card .feature-content{height:100%}
+.capability-media{position:relative;height:205px;overflow:hidden;background:#091820}
+.capability-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,20,.7),transparent 48%)}
+.capability-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.capability-card:hover .capability-media img{transform:scale(1.025)}
+.capability-media>span{position:absolute;z-index:2;left:16px;bottom:14px;color:#d8e7ea;font-size:7.5px;font-weight:800;letter-spacing:.14em;text-shadow:0 2px 12px rgba(0,0,0,.55)}
+.capability-copy{padding:27px}
+.capability-copy h3{margin-top:0}
+.capability-card-wide .feature-content{display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch}
+.capability-card-wide .capability-media{height:100%;min-height:340px}
+.capability-card-wide .capability-copy{display:flex;flex-direction:column;justify-content:center;padding:38px}
+.energy-use-grid article{padding:0;overflow:hidden}
+.energy-use-image{height:190px;overflow:hidden;background:#0b1922}
+.energy-use-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.energy-use-grid article:hover .energy-use-image img{transform:scale(1.025)}
+.energy-use-copy{padding:28px 30px 30px}
+.energy-use-copy>span{color:#82969f;font-size:9px;letter-spacing:.14em}
+.energy-use-copy h3{margin-top:20px}
+.map-pack-visual{position:relative;height:230px;margin:30px 0 4px;border:1px solid #29414d;border-radius:10px;overflow:hidden;background:#07131a}
+.map-pack-visual img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04)}
+.map-pack-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,14,19,.82),transparent 58%)}
+.map-pack-visual span{position:absolute;z-index:2;left:16px;bottom:14px;color:#cfe0e5;font-size:8px;font-weight:800;letter-spacing:.14em}
+@media(max-width:900px){
+  .capability-card-wide .feature-content{grid-template-columns:1fr}
+  .capability-card-wide .capability-media{min-height:285px}
+  .capability-card-wide .capability-copy{padding:30px}
+}
+@media(max-width:560px){
+  .capability-media,.energy-use-image{height:200px}
+  .capability-card-wide .capability-media{min-height:230px}
+  .capability-copy,.capability-card-wide .capability-copy,.energy-use-copy{padding:24px}
+  .energy-use-grid article{padding:0}
+  .map-pack-visual{height:210px}
+}
