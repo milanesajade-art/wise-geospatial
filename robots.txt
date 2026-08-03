@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://milanesajade-art.github.io/wise-geospatial/sitemap.xml
