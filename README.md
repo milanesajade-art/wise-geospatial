@@ -4,6 +4,7 @@ Static one-page website for Wise Geospatial.
 
 ## Files
 - `index.html` — site content
+- `energy.html` — dedicated energy and oil/gas service page
 - `styles.css` — responsive styling
 - `script.js` — mobile menu + quote form email handoff
 
