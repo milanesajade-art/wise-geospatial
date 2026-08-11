@@ -35,6 +35,20 @@ window.addEventListener('resize', () => {
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
+
+function trackEvent(name, params = {}) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params);
+}
+
+document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    trackEvent('contact_click', {
+      contact_method: link.href.startsWith('mailto:') ? 'email' : 'phone',
+      link_location: link.closest('footer') ? 'footer' : 'page_content'
+    });
+  });
+});
+
 const quoteForm = document.getElementById('quoteForm');
 const projectType = quoteForm?.querySelector('select[name="type"]');
 
@@ -62,6 +76,8 @@ quoteForm?.addEventListener('submit', (event) => {
     'Project Details:',
     data.get('details')
   ].join('\n');
+
+  trackEvent('project_request_prepare', { project_type: String(data.get('type') || 'not_specified') });
 
   const status = quoteForm.querySelector('.form-status');
   if (status) status.textContent = 'Opening your email app with the project details…';
