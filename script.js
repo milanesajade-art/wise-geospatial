@@ -40,6 +40,29 @@ function trackEvent(name, params = {}) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params);
 }
 
+const servicePage = document.body.classList.contains('property-guide-page')
+  ? 'san_antonio_drone_property_guide'
+  : document.body.classList.contains('property-page')
+    ? 'property_documentation'
+    : document.body.classList.contains('energy-page')
+      ? 'energy'
+      : 'home';
+
+trackEvent('service_page_view', {
+  service_page: servicePage,
+  page_path: window.location.pathname
+});
+
+document.querySelectorAll('.btn, .nav-cta, .industry-link, .text-link').forEach((link) => {
+  link.addEventListener('click', () => {
+    trackEvent('cta_click', {
+      link_text: link.textContent.trim().slice(0, 100),
+      link_url: link.getAttribute('href') || '',
+      service_page: servicePage
+    });
+  });
+});
+
 document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) => {
   link.addEventListener('click', () => {
     trackEvent('contact_click', {
