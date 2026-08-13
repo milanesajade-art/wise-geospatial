@@ -67,11 +67,11 @@ const projectGallery = document.getElementById('projectGallery');
 const galleryTitle = document.getElementById('gallery-title');
 const galleryIntro = document.getElementById('gallery-intro');
 const galleryDetails = {
-  estate: { title: 'Luxury estate listing shot set', intro: 'A coordinated exterior-to-interior sequence that establishes setting first, then gives a serious buyer the architecture, arrival and living experience behind the headline image.' },
-  residential: { title: 'Residential property documentation set', intro: 'A practical exterior and interior sequence designed to give an agent, owner or remote buyer a clearer understanding of how the home and site work together.' },
-  commercial: { title: 'Commercial property documentation set', intro: 'A site, roof and interior sequence that helps brokers, owners and project teams review access, operations, visible building features and interior context without guessing.' },
-  ranch: { title: 'Ranch + acreage documentation set', intro: 'A land-to-residence sequence that explains the practical relationship between acreage, improvements, approach and the primary living space.' },
-  tour: { title: 'Cinematic + interactive tour shot set', intro: 'A storytelling sequence for listings where viewers need both initial orientation and the confidence to revisit room flow, finishes and the property setting.' }
+  estate: { title: 'Luxury estate listing shot set', intro: 'A 28–36 still premium-listing target: context first, then architecture, the key room sequence and a roof plan-view reference. Every sample names its capture angle so the set can be scoped—not guessed.' },
+  residential: { title: 'Residential property documentation set', intro: 'A 22–30 still target that separates buyer-facing listing photography from visible-condition documentation. The result explains the home, setting, key rooms and roof/site context without calling it an inspection.' },
+  commercial: { title: 'Commercial property documentation set', intro: 'A repeatable site, façade, roof and interior sequence for brokers, owners and project teams. The roof baseline adds plan-view and 45-degree obliques; model-ready capture is only used when the stated overlap threshold is met.' },
+  ranch: { title: 'Ranch + acreage documentation set', intro: 'A 24–36 still, property-scoped plan: tract context, access, improvements, the residence and the primary interior—not a random collection of scenic aerials.' },
+  tour: { title: 'Cinematic + interactive tour shot set', intro: 'A consistent exterior-to-interior visual route with level, repeatable key-room frames. It can support a hosted 3D tour or a short walkthrough edit when those deliverables are scoped.' }
 };
 
 function closeProjectGallery() {
