@@ -63,6 +63,41 @@ document.querySelectorAll('.btn, .nav-cta, .industry-link, .text-link').forEach(
   });
 });
 
+const projectGallery = document.getElementById('projectGallery');
+const galleryTitle = document.getElementById('gallery-title');
+const galleryIntro = document.getElementById('gallery-intro');
+const galleryDetails = {
+  estate: { title: 'Luxury estate listing shot set', intro: 'A coordinated exterior-to-interior sequence that establishes setting first, then gives a serious buyer the architecture, arrival and living experience behind the headline image.' },
+  residential: { title: 'Residential property documentation set', intro: 'A practical exterior and interior sequence designed to give an agent, owner or remote buyer a clearer understanding of how the home and site work together.' },
+  commercial: { title: 'Commercial property documentation set', intro: 'A site, roof and interior sequence that helps brokers, owners and project teams review access, operations, visible building features and interior context without guessing.' },
+  ranch: { title: 'Ranch + acreage documentation set', intro: 'A land-to-residence sequence that explains the practical relationship between acreage, improvements, approach and the primary living space.' },
+  tour: { title: 'Cinematic + interactive tour shot set', intro: 'A storytelling sequence for listings where viewers need both initial orientation and the confidence to revisit room flow, finishes and the property setting.' }
+};
+
+function closeProjectGallery() {
+  if (projectGallery?.open) projectGallery.close();
+}
+
+document.querySelectorAll('[data-gallery]').forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    const key = trigger.dataset.gallery;
+    const details = galleryDetails[key];
+    const activePanel = projectGallery?.querySelector(`[data-gallery-panel="${key}"]`);
+    if (!details || !activePanel || !projectGallery) return;
+    projectGallery.querySelectorAll('[data-gallery-panel]').forEach((panel) => { panel.hidden = panel !== activePanel; });
+    galleryTitle.textContent = details.title;
+    galleryIntro.textContent = details.intro;
+    projectGallery.showModal();
+    projectGallery.querySelector('.gallery-close')?.focus();
+    trackEvent('project_example_gallery_open', { gallery_type: key, service_page: servicePage });
+  });
+});
+
+projectGallery?.querySelector('.gallery-close')?.addEventListener('click', closeProjectGallery);
+projectGallery?.addEventListener('click', (event) => {
+  if (event.target === projectGallery) closeProjectGallery();
+});
+
 document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) => {
   link.addEventListener('click', () => {
     trackEvent('contact_click', {
