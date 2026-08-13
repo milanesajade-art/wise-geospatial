@@ -39,4 +39,6 @@ jobs:
             --header "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/$GITHUB_REPOSITORY/pages"
           echo "DNS resolution:"
-          getent ahosts wise-geospatial.com || true
+          curl --silent "https://dns.google/resolve?name=wise-geospatial.com&type=A"
+          echo
+          curl --silent "https://dns.google/resolve?name=wise-geospatial.com&type=CNAME"
