@@ -40,13 +40,13 @@ function trackEvent(name, params = {}) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params);
 }
 
-const servicePage = document.body.classList.contains('property-guide-page')
+const servicePage = document.body.dataset.servicePage || (document.body.classList.contains('property-guide-page')
   ? 'san_antonio_drone_property_guide'
   : document.body.classList.contains('property-page')
     ? 'property_documentation'
     : document.body.classList.contains('energy-page')
       ? 'energy'
-      : 'home';
+      : 'home');
 
 trackEvent('service_page_view', {
   service_page: servicePage,
