@@ -142,5 +142,5 @@ quoteForm?.addEventListener('submit', (event) => {
   const status = quoteForm.querySelector('.form-status');
   if (status) status.textContent = 'Opening your email app with the project details…';
 
-  window.location.href = `mailto:kwise@wise-geospatial.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:kwise@wisegeospatial.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
