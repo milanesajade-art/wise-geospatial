@@ -291,3 +291,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .brand-mark svg{display:none}
 .footer-brand{display:flex;align-items:center;gap:10px}
 .footer-brand:before{content:"";display:block;width:34px;height:34px;flex:0 0 34px;background:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat}
+
+/* Refined navigation lockup: high-contrast compass mark, calibrated to the page scale. */
+:root{--aqua:#5de7ff;--blue:#8ecbff}
+.site-header{background:rgba(5,17,25,.96);border-bottom-color:rgba(93,231,255,.14)}
+.nav-wrap{height:84px}
+.brand{gap:14px;line-height:1}
+.brand-mark{width:60px;height:60px;flex-basis:60px;background:var(--aqua);-webkit-mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat;mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat}
+.brand-mark img{display:none}
+.brand strong{font-size:17px;letter-spacing:.16em;color:#f6fbff}
+.brand small{font-size:9px;letter-spacing:.19em;color:#a9c6d2;margin-top:6px}
+.nav{gap:25px;color:#c1d1d8}
+.nav-cta{border-color:rgba(93,231,255,.42);background:rgba(93,231,255,.06)}
+.footer-brand{gap:12px}
+.footer-brand:before{width:44px;height:44px;flex-basis:44px;background:var(--aqua);-webkit-mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat;mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat}
+@media(max-width:900px){.nav{top:84px}.brand-mark{width:54px;height:54px;flex-basis:54px}}
