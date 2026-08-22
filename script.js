@@ -125,15 +125,21 @@ quoteForm?.addEventListener('submit', (event) => {
 
   const data = new FormData(quoteForm);
   const subject = `Wise Geospatial Project Request — ${data.get('type')}`;
-  const body = [
+  const bodyLines = [
     `Name: ${data.get('name')}`,
     `Company: ${data.get('company') || '—'}`,
     `Email: ${data.get('email')}`,
-    `Project Type: ${data.get('type')}`,
+    `Project Type: ${data.get('type')}`
+  ];
+
+  if (data.has('propertyType')) bodyLines.push(`Property Type: ${data.get('propertyType')}`);
+  if (data.has('timeline')) bodyLines.push(`Launch Timing: ${data.get('timeline')}`);
+
+  const body = bodyLines.concat([
     '',
     'Project Details:',
     data.get('details')
-  ].join('\n');
+  ]).join('\n');
 
   trackEvent('project_request_prepare', { project_type: String(data.get('type') || 'not_specified') });
 
@@ -141,4 +147,13 @@ quoteForm?.addEventListener('submit', (event) => {
   if (status) status.textContent = 'Opening your email app with the project details…';
 
   window.location.href = `mailto:kwise@wisegeospatial.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+document.querySelectorAll('.booking-link').forEach((link) => {
+  link.addEventListener('click', () => {
+    trackEvent('appointment_booking_click', {
+      link_location: link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'page_content',
+      service_page: servicePage
+    });
+  });
 });

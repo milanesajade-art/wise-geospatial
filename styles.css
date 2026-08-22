@@ -371,3 +371,15 @@ footer{font-size:13px}
   .property-frame{width:104px}
   .property-frame small,.property-frame span{font-size:8.5px}
 }
+
+/* Appointment scheduling */
+.booking-card{margin:26px 0 22px;padding:22px;border:1px solid #245362;border-radius:12px;background:linear-gradient(145deg,#0d2530,#123542);color:#fff;box-shadow:0 18px 38px rgba(8,31,40,.12)}
+.booking-card span,.booking-card strong,.booking-card small{display:block}
+.booking-card span{color:var(--aqua);font-size:11px;font-weight:800;letter-spacing:.14em}
+.booking-card strong{margin:7px 0 5px;font-family:"Space Grotesk";font-size:22px;line-height:1.18}
+.booking-card small{color:#a9c0c9;font-size:13px;line-height:1.55}
+.booking-card .btn{margin-top:16px;width:100%}
+.calendar-btn{background:var(--aqua);color:#04151b;border-color:var(--aqua)}
+.calendar-btn:hover{background:#8cefff;border-color:#8cefff}
+.footer-contact .booking-link{color:var(--aqua);font-weight:800}
+@media(max-width:560px){.booking-card{padding:19px}.booking-card strong{font-size:20px}}
