@@ -21,6 +21,6 @@ This package can be deployed directly to:
 
 ## Contact form
 The v1 quote form opens the visitor's default email client and pre-fills an email to:
-`kwise@wise-geospatial.com`
+`kwise@wisegeospatial.com`
 
 This avoids needing a backend for the first launch. A hosted form endpoint can be added later.
