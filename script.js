@@ -102,7 +102,8 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) 
   link.addEventListener('click', () => {
     trackEvent('contact_click', {
       contact_method: link.href.startsWith('mailto:') ? 'email' : 'phone',
-      link_location: link.closest('footer') ? 'footer' : 'page_content'
+      link_location: link.closest('footer') ? 'footer' : 'page_content',
+      service_page: servicePage
     });
   });
 });
@@ -124,6 +125,7 @@ quoteForm?.addEventListener('submit', (event) => {
   if (!quoteForm.reportValidity()) return;
 
   const data = new FormData(quoteForm);
+  const projectTypeValue = String(data.get('type') || 'not_specified');
   const subject = `Wise Geospatial Project Request — ${data.get('type')}`;
   const bodyLines = [
     `Name: ${data.get('name')}`,
@@ -141,7 +143,15 @@ quoteForm?.addEventListener('submit', (event) => {
     data.get('details')
   ]).join('\n');
 
-  trackEvent('project_request_prepare', { project_type: String(data.get('type') || 'not_specified') });
+  trackEvent('project_request_prepare', {
+    project_type: projectTypeValue,
+    service_page: servicePage
+  });
+  trackEvent('generate_lead', {
+    lead_source: 'website_project_request',
+    project_type: projectTypeValue,
+    service_page: servicePage
+  });
 
   const status = quoteForm.querySelector('.form-status');
   if (status) status.textContent = 'Opening your email app with the project details…';
