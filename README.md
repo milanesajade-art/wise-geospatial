@@ -1,26 +1,29 @@
-# Wise Geospatial Website v1
+# Wise Geospatial Website
 
-Static one-page website for Wise Geospatial.
+Static multi-page website for Wise Geospatial, hosted on GitHub Pages at https://wise-geospatial.com/.
 
-## Files
-- `index.html` — site content
-- `energy.html` — dedicated energy and oil/gas service page
-- `styles.css` — responsive styling
-- `script.js` — mobile menu + quote form email handoff
+## Main pages
+
+- `index.html` — homepage and project inquiry form
+- `federal-contracting.html` — federal capabilities, SAM.gov identifiers, NAICS codes, and downloadable capability statement
+- `energy.html` — energy and oil/gas service page
+- `property.html` — property documentation and listing media
+- `uas-mapping-and-site-documentation.html` — UAS mapping and site documentation
+- `point-cloud-processing.html` — LiDAR and point-cloud processing
+- `san-antonio-drone-property-documentation.html` — local property documentation guide
+- `privacy.html` — privacy notice
+
+## Shared files
+
+- `styles.css` — responsive site styling
+- `script.js` — mobile navigation and quote-form email handoff
+- `sitemap.xml` — sitemap for search engines
+- `assets/` — logos, page imagery, and the capability statement PDF
 
 ## Preview locally
+
 Open `index.html` in a browser.
 
-## Hosting
-This package can be deployed directly to:
-- GitHub Pages
-- Netlify
-- Cloudflare Pages
-- Vercel static hosting
-- Any standard web host
-
 ## Contact form
-The v1 quote form opens the visitor's default email client and pre-fills an email to:
-`kwise@wisegeospatial.com`
 
-This avoids needing a backend for the first launch. A hosted form endpoint can be added later.
+The inquiry form opens the visitor’s default email client and pre-fills an email to `kwise@wisegeospatial.com`. The visitor reviews and sends the message from their own email account.
