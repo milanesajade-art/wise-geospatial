@@ -5,7 +5,7 @@ Static multi-page website for Wise Geospatial, hosted on GitHub Pages at https:/
 ## Main pages
 
 - `index.html` — homepage and project inquiry form
-- `federal-contracting.html` — federal capabilities, SAM.gov identifiers, NAICS codes, and downloadable capability statement
+- `federal-contracting.html` — federal capabilities, SAM.gov identifiers, teaming scope, and downloadable capability statement
 - `energy.html` — energy and oil/gas service page
 - `property.html` — property documentation and listing media
 - `uas-mapping-and-site-documentation.html` — UAS mapping and site documentation
