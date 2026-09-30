@@ -295,13 +295,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* Refined navigation lockup: high-contrast compass mark, calibrated to the page scale. */
 :root{--aqua:#5de7ff;--blue:#8ecbff}
 .site-header{background:rgba(5,17,25,.96);border-bottom-color:rgba(93,231,255,.14)}
-.nav-wrap{height:84px}
-.brand{gap:14px;line-height:1}
+.nav-wrap{height:84px;gap:32px}
+.brand{gap:14px;line-height:1;flex-shrink:0}
 .brand-mark{width:60px;height:60px;flex-basis:60px;background:var(--aqua);-webkit-mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat;mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat}
 .brand-mark img{display:none}
 .brand strong{font-size:17px;letter-spacing:.16em;color:#f6fbff}
 .brand small{font-size:9px;letter-spacing:.19em;color:#a9c6d2;margin-top:6px}
-.nav{gap:25px;color:#c1d1d8}
+.nav{gap:24px;color:#c1d1d8;margin-left:auto}
+.nav a{flex-shrink:0;white-space:nowrap;line-height:1.4}
 .nav-cta{border-color:rgba(93,231,255,.42);background:rgba(93,231,255,.06)}
 .footer-brand{gap:12px}
 .footer-brand:before{width:44px;height:44px;flex-basis:44px;background:var(--aqua);-webkit-mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat;mask:url("assets/wise-geospatial-compass-orbit-logo.png") center/contain no-repeat}
@@ -383,3 +384,24 @@ footer{font-size:13px}
 .calendar-btn:hover{background:#8cefff;border-color:#8cefff}
 .footer-contact .booking-link{color:var(--aqua);font-weight:800}
 @media(max-width:560px){.booking-card{padding:19px}.booking-card strong{font-size:20px}}
+
+/* Compact navigation before long labels crowd the brand or wrap the call button. */
+@media(max-width:72rem){
+  body.menu-open{overflow:hidden}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;margin:0;padding:20px 24px;flex-direction:column;align-items:stretch;gap:4px;background:#0b1922;max-height:calc(100dvh - 85px);overflow:auto;border-bottom:1px solid #203945;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+  .nav.open{display:flex}
+  .nav a{width:100%;padding:12px 2px;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem;white-space:normal}
+  .nav .nav-cta{margin-top:8px;padding:12px 18px;border:1px solid rgba(93,231,255,.42);text-align:center;white-space:nowrap}
+  .menu-btn{display:block;flex-shrink:0;width:44px;height:44px;padding:0;border:1px solid #29424f;border-radius:7px;line-height:1}
+  .menu-btn span{display:block;transform:translateY(-1px)}
+}
+
+/* Keep short service descriptors consistently uppercase. */
+.trust-grid span,.eyebrow,.tag,.chips span,.project-type,.project-output,.industry-grid small,.hero-data-caption>span,.energy-proof span,.energy-brief-strip span,.property-proof span,.property-brief-strip span,.package-label,.example-type,.shot-label{ text-transform:uppercase }
+.trust-grid span{font-size:.8125rem;letter-spacing:.035em}
+
+/* Preserve the complete surface comparison and stockpile outline. */
+.feature-media-earthwork{height:auto;aspect-ratio:1280/853}
+.feature-media-earthwork img{object-fit:contain}
+.feature:hover .feature-media-earthwork img{transform:none}
+.feature-media-label{position:absolute;z-index:1;left:16px;bottom:14px;padding:6px 9px;border:1px solid rgba(255,255,255,.28);background:rgba(7,20,27,.85);color:#edf3f5;font-size:.75rem;font-weight:700;letter-spacing:.06em}

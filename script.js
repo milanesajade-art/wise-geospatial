@@ -28,8 +28,10 @@ document.addEventListener('click', (event) => {
   }
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) setMenu(false);
+// Keep this breakpoint aligned with the shared navigation styles.
+const compactNavigation = window.matchMedia('(max-width: 72rem)');
+compactNavigation.addEventListener('change', (event) => {
+  if (!event.matches) setMenu(false);
 });
 
 const year = document.getElementById('year');
