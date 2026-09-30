@@ -1,6 +1,68 @@
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('.nav');
 
+const contactDock = document.createElement('aside');
+contactDock.className = 'contact-dock';
+contactDock.setAttribute('aria-label', 'Contact Wise Geospatial');
+contactDock.innerHTML = `
+  <a class="contact-dock__item" href="tel:+12109020888" aria-label="Call Wise Geospatial at (210) 902-0888">
+    <span>CALL</span><strong>(210) 902-0888</strong>
+  </a>
+  <a class="contact-dock__item" href="mailto:kwise@wisegeospatial.com" aria-label="Email Wise Geospatial at kwise@wisegeospatial.com">
+    <span>EMAIL</span><strong>kwise@wisegeospatial.com</strong>
+  </a>
+  <a class="contact-dock__book booking-link" href="https://calendar.app.google/kaoqQgkgv8akGxPDA" target="_blank" rel="noopener noreferrer">BOOK A CALL</a>
+`;
+document.body.append(contactDock);
+
+const contactDockStyles = document.createElement('style');
+contactDockStyles.textContent = `
+  .contact-dock {
+    position: fixed; right: 20px; bottom: 20px; z-index: 50;
+    display: flex; align-items: center; gap: 18px;
+    width: max-content; max-width: calc(100vw - 32px);
+    padding: 12px 14px; border: 1px solid rgba(64,230,196,.32);
+    border-radius: 12px; background: rgba(8,19,27,.96);
+    box-shadow: 0 12px 36px rgba(0,0,0,.32); color: #edf3f5;
+    font: 500 12px/1.3 Manrope, system-ui, sans-serif;
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  }
+  .contact-dock__item { display: grid; gap: 2px; min-width: 0; }
+  .contact-dock__item span { color: #91a5af; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+  .contact-dock__item strong { color: #edf3f5; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .contact-dock__item:hover strong { color: #40e6c4; }
+  .contact-dock__book {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 40px; padding: 0 14px; border-radius: 7px;
+    background: #40e6c4; color: #08131b; font-size: 10px;
+    font-weight: 800; letter-spacing: .06em; white-space: nowrap;
+  }
+  .contact-dock__book:hover { background: #74f1d8; }
+  .contact-dock a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  @media (max-width: 760px) {
+    body { padding-bottom: 82px; }
+    .contact-dock {
+      right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); left: 8px;
+      width: auto; max-width: none; justify-content: space-between; gap: 8px;
+      padding: 9px 10px;
+    }
+    .contact-dock__item { flex: 1 1 auto; }
+    .contact-dock__item span { font-size: 8px; }
+    .contact-dock__item strong { font-size: clamp(9px, 2.8vw, 11px); }
+    .contact-dock__book { min-height: 38px; padding: 0 10px; font-size: 9px; }
+  }
+  @media (max-width: 365px) {
+    .contact-dock { gap: 5px; padding-inline: 7px; }
+    .contact-dock__item strong { font-size: 9px; }
+    .contact-dock__book { padding-inline: 7px; font-size: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .contact-dock, .contact-dock * { scroll-behavior: auto; transition: none !important; }
+  }
+`;
+document.head.append(contactDockStyles);
+
+
 function setMenu(open) {
   if (!menuBtn || !nav) return;
   nav.classList.toggle('open', open);
