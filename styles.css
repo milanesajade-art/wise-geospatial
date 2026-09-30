@@ -401,7 +401,8 @@ footer{font-size:13px}
 .trust-grid span{font-size:.8125rem;letter-spacing:.035em}
 
 /* Preserve the complete surface comparison and stockpile outline. */
-.feature-media-earthwork{height:auto;aspect-ratio:1280/853}
+.feature-grid .feature{grid-template-rows:1fr auto}
+.feature-grid .feature-media{height:auto;aspect-ratio:3/2}
 .feature-media-earthwork img{object-fit:contain}
 .feature:hover .feature-media-earthwork img{transform:none}
 .feature-media-label{position:absolute;z-index:1;left:16px;bottom:14px;padding:6px 9px;border:1px solid rgba(255,255,255,.28);background:rgba(7,20,27,.85);color:#edf3f5;font-size:.75rem;font-weight:700;letter-spacing:.06em}
