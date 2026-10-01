@@ -406,3 +406,5 @@ footer{font-size:13px}
 .feature-media-earthwork img{object-fit:contain}
 .feature:hover .feature-media-earthwork img{transform:none}
 .feature-media-label{position:absolute;z-index:1;left:16px;bottom:14px;padding:6px 9px;border:1px solid rgba(255,255,255,.28);background:rgba(7,20,27,.85);color:#edf3f5;font-size:.75rem;font-weight:700;letter-spacing:.06em}
+
+.project-image video.project-video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#061018}.project-image .video-badge{top:16px;bottom:auto;left:16px;pointer-events:none}
