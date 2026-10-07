@@ -51,9 +51,16 @@
     .federal-cta{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:27px 30px;margin-top:32px;background:#0d1c26;color:#edf3f5;border-radius:12px}
     .federal-cta strong{font-family:"Space Grotesk",sans-serif;font-size:20px}
     .federal-cta p{margin:5px 0 0;color:#a9bac2;font-size:13px}
+    .federal-showcase{padding:68px 0;background:#091720;color:#edf3f5}
+    .federal-showcase-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;align-items:center}
+    .federal-showcase h2{font-size:clamp(32px,4vw,48px);line-height:1.05;margin:8px 0 16px}
+    .federal-showcase p{color:#aebdc4;max-width:620px}
+    .federal-showcase .showcase-note{font-size:11px;color:#80949e;margin-top:14px}
+    .federal-video-wrap{overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:#050c11;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+    .federal-video-wrap video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#050c11}
     .federal-footer{padding:30px 0;color:#9bacb5;font-size:12px}
     .federal-footer a{color:#dce6ea}
-    @media(max-width:800px){.federal-hero-grid,.federal-layout,.scope-grid{grid-template-columns:1fr}.federal-hero{padding:60px 0}.federal-card{max-width:560px}.federal-cta{align-items:flex-start;flex-direction:column}.federal-content{padding:58px 0}}
+    @media(max-width:800px){.federal-hero-grid,.federal-layout,.scope-grid,.federal-showcase-grid{grid-template-columns:1fr}.federal-hero{padding:60px 0}.federal-card{max-width:560px}.federal-cta{align-items:flex-start;flex-direction:column}.federal-content{padding:58px 0}}
   </style>
 </head>
 <body>
@@ -98,6 +105,22 @@
         <p class="federal-note">Status last confirmed September 28, 2026, as stated in the current capability statement. Verify current registration details in SAM.gov before award or vendor onboarding.</p>
         <a class="text-link" href="https://sam.gov/entity-information" target="_blank" rel="noopener noreferrer">Look up the entity on SAM.gov →</a>
       </aside>
+    </div>
+  </section>
+  <section class="federal-showcase" id="construction-showcase">
+    <div class="container federal-showcase-grid">
+      <div>
+        <p class="eyebrow">CONSTRUCTION PROJECT SHOWCASE</p>
+        <h2>See the work in motion.</h2>
+        <p>A short field-to-project showcase illustrating the kind of construction progress context, site documentation, and visual project support Wise Geospatial can provide to prime contractors and technical teams.</p>
+        <p class="showcase-note">Representative construction/project imagery; not presented as prior federal contract performance.</p>
+      </div>
+      <div class="federal-video-wrap">
+        <video controls playsinline preload="metadata" poster="assets/wise-construction-progress.jpg" aria-label="Wise Geospatial construction project showcase">
+          <source src="assets/wise-geospatial-construction-showcase.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
     </div>
   </section>
   <section class="federal-content">
