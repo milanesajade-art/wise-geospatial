@@ -10,6 +10,7 @@ Static multi-page website for Wise Geospatial, hosted on GitHub Pages at https:/
 - `property.html` — property documentation and listing media
 - `uas-mapping-and-site-documentation.html` — UAS mapping and site documentation
 - `point-cloud-processing.html` — LiDAR and point-cloud processing
+- `construction-quantity-tracking.html` — construction quantity tracking and earthwork progress support
 - `san-antonio-drone-property-documentation.html` — local property documentation guide
 - `privacy.html` — privacy notice
 
