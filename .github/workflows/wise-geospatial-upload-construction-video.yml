@@ -1,0 +1,30 @@
+name: Add construction showcase video
+on:
+  push:
+    paths:
+      - ".github/workflows/wise-geospatial-upload-construction-video.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  upload-video:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download finished construction showcase
+        env:
+          VIDEO_URL: 'https://sdmntprcentralus.oaiusercontent.com/files/00000000-9ef4-81f5-a099-e179e66a4082/raw?se=2026-10-07T02%3A16%3A01Z&sp=r&sv=2026-02-06&sr=b&scid=6077b638-9fa9-58ca-87f5-264b048a59f7&skoid=a1be202a-6464-476c-a496-723317c4a4db&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-07T00%3A48%3A43Z&ske=2026-10-08T00%3A48%3A43Z&sks=b&skv=2026-02-06&sig=VQxHfNYxYMMzIF5JXwP3abyl7bF1uRwRmOBsFRX0VWU%3D'
+        run: |
+          mkdir -p assets
+          curl --fail --location --retry 3 "$VIDEO_URL" -o assets/wise-geospatial-construction-showcase.mp4
+          test "$(stat -c%s assets/wise-geospatial-construction-showcase.mp4)" -gt 1000000
+      - name: Commit video asset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/wise-geospatial-construction-showcase.mp4
+          git commit -m "Add construction showcase video asset [skip ci]"
+          git push origin HEAD:main
