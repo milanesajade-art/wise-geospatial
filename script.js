@@ -196,12 +196,14 @@ quoteForm?.addEventListener('submit', (event) => {
     project_type: String(data.get('type') || 'not_specified'),
     service_page: servicePage
   });
-  const submitButton = quoteForm.querySelector('button[type="submit"]');
-  if (submitButton) {
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending request…';
-  }
-  // Do not prevent the normal POST. It works without JS as well.
+  try {
+    sessionStorage.setItem('wg_project_form_attempt', JSON.stringify({
+      service_page: servicePage,
+      project_type: String(data.get('type') || 'not_specified'),
+      timestamp: Date.now()
+    }));
+  } catch (_) { /* Storage may be unavailable; normal POST remains functional. */ }
+  // Do not disable the submitter or prevent the native POST.
 });
 
 document.querySelectorAll('.booking-link').forEach((link) => {
