@@ -8,7 +8,7 @@ contactDock.innerHTML = `
   <a class="contact-dock__item" href="tel:+12109020888" aria-label="Call Wise Geospatial at (210) 902-0888">
     <span>CALL</span><strong>(210) 902-0888</strong>
   </a>
-  <a class="contact-dock__item" href="mailto:kwise@wisegeospatial.com" aria-label="Email Wise Geospatial at kwise@wisegeospatial.com">
+  <a class="contact-dock__item contact-dock__email" href="mailto:kwise@wisegeospatial.com" aria-label="Email Wise Geospatial at kwise@wisegeospatial.com">
     <span>EMAIL</span><strong>kwise@wisegeospatial.com</strong>
   </a>
   <a class="contact-dock__book booking-link" href="https://calendar.app.google/kaoqQgkgv8akGxPDA" target="_blank" rel="noopener noreferrer">BOOK A CALL</a>
@@ -40,16 +40,18 @@ contactDockStyles.textContent = `
   .contact-dock__book:hover { background: #74f1d8; }
   .contact-dock a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
   @media (max-width: 760px) {
-    body { padding-bottom: 82px; }
+    body { padding-bottom: 72px; }
+    body.menu-open .contact-dock { display: none; }
+    .contact-dock__email { display: none; }
     .contact-dock {
-      right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); left: 8px;
+      right: 10px; bottom: max(8px, env(safe-area-inset-bottom)); left: 10px;
       width: auto; max-width: none; justify-content: space-between; gap: 8px;
-      padding: 9px 10px;
+      padding: 7px 10px;
     }
     .contact-dock__item { flex: 1 1 auto; }
     .contact-dock__item span { font-size: 8px; }
     .contact-dock__item strong { font-size: clamp(9px, 2.8vw, 11px); }
-    .contact-dock__book { min-height: 38px; padding: 0 10px; font-size: 9px; }
+    .contact-dock__book { min-height: 38px; padding: 0 14px; font-size: 10px; }
   }
   @media (max-width: 365px) {
     .contact-dock { gap: 5px; padding-inline: 7px; }
