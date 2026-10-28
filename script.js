@@ -227,3 +227,32 @@ document.querySelectorAll('.booking-link').forEach((link) => {
     });
   });
 });
+
+
+// Progressive disclosure on compact screens. All content stays in the document
+// and is visible at desktop widths; there is no content removed for SEO.
+if (document.body.querySelector('#services') && !document.body.classList.contains('energy-page')) {
+  const groups = [
+    ['#services .feature-grid',2,'services'],
+    ['#applications .project-grid',1,'examples'],
+    ['#industries .industry-grid',2,'industries'],
+    ['#deliverables .industry-grid',2,'deliverables']
+  ];
+  for (const [selector,shown,label] of groups) {
+    const group=document.querySelector(selector);
+    if (!group || group.children.length<=shown) continue;
+    group.classList.add('mobile-collapsible');
+    group.style.setProperty('--mobile-visible',String(shown));
+    // A rule local to each group preserves exact teaser count.
+    group.classList.add('mobile-group-'+label);
+    const button=document.createElement('button');
+    button.type='button'; button.className='mobile-reveal';
+    button.setAttribute('aria-expanded','false');
+    const id='mobile-content-'+label;
+    group.id=group.id||id;
+    button.setAttribute('aria-controls',group.id);
+    const update=()=>{const expanded=group.classList.contains('mobile-expanded');button.textContent=expanded?'Show fewer '+label:'View all '+label;button.setAttribute('aria-expanded',String(expanded));};
+    button.addEventListener('click',()=>{group.classList.toggle('mobile-expanded');update();trackEvent('mobile_section_toggle',{section:label,expanded:group.classList.contains('mobile-expanded')});});
+    group.insertAdjacentElement('afterend',button);update();
+  }
+}
