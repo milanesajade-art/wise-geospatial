@@ -186,39 +186,22 @@ document.querySelectorAll('[data-project-type]').forEach((link) => {
 });
 
 quoteForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  if (!quoteForm.reportValidity()) return;
-
+  if (!quoteForm.reportValidity()) {
+    event.preventDefault();
+    return;
+  }
   const data = new FormData(quoteForm);
-  const projectTypeValue = String(data.get('type') || 'not_specified');
-  const subject = `Wise Geospatial Project Request — ${data.get('type')}`;
-  const bodyLines = [
-    `Name: ${data.get('name')}`,
-    `Company: ${data.get('company') || '—'}`,
-    `Email: ${data.get('email')}`,
-    `Project Type: ${data.get('type')}`
-  ];
-
-  if (data.has('propertyType')) bodyLines.push(`Property Type: ${data.get('propertyType')}`);
-  if (data.has('timeline')) bodyLines.push(`Launch Timing: ${data.get('timeline')}`);
-
-  const body = bodyLines.concat([
-    '',
-    'Project Details:',
-    data.get('details')
-  ]).join('\n');
-
-  trackEvent('project_request_prepare', {
-    project_type: projectTypeValue,
+  // Record intent only. Actual delivery is handled by the form processor.
+  trackEvent('project_request_submit_attempt', {
+    project_type: String(data.get('type') || 'not_specified'),
     service_page: servicePage
   });
-  // Preparing an email is an intent signal, not a confirmed submitted lead.
-
-  const status = quoteForm.querySelector('.form-status');
-  if (status) status.textContent = 'Opening your email app with the project details…';
-
-  window.location.href = `mailto:kwise@wisegeospatial.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const submitButton = quoteForm.querySelector('button[type="submit"]');
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending request…';
+  }
+  // Do not prevent the normal POST. It works without JS as well.
 });
 
 document.querySelectorAll('.booking-link').forEach((link) => {
