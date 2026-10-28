@@ -417,3 +417,44 @@ footer{font-size:13px}
 .deliverables-section .industry-grid article>span,.deliverables-section .industry-grid small{color:#567782}
 .deliverables-section .industry-link{color:#126c79}
 .deliverables-section .demo-note{margin-top:24px}
+
+/* Compact mobile homepage: full content remains available on demand. */
+@media(max-width:760px){
+  body:not(.property-page):not(.energy-page) .hero{min-height:0}
+  .hero-content{padding-top:34px;padding-bottom:28px;gap:20px}
+  .hero h1{font-size:clamp(34px,9vw,44px);line-height:1.09;letter-spacing:-.035em}
+  .hero .eyebrow{font-size:10px;line-height:1.4}
+  .hero-copy{font-size:15px!important;line-height:1.5!important;margin:14px 0}
+  .hero-actions{gap:9px;flex-wrap:wrap}
+  .hero-actions .btn{padding:11px 12px;font-size:12px}
+  .credential-row{gap:8px;margin-top:14px;font-size:10px}
+  .hero-visual{min-height:210px;max-height:245px}
+  .hero-data-caption strong{font-size:15px}
+  .visual-readout{display:none}
+  .trust-strip{display:none}
+  #services,#applications,#industries,#deliverables{padding-top:42px;padding-bottom:42px}
+  #services .section-head,#applications .section-head,#industries .section-head,#deliverables .section-head{margin-bottom:20px}
+  #services .section-head h2,#applications .section-head h2,#industries .section-head h2,#deliverables .section-head h2{font-size:clamp(25px,7vw,31px);line-height:1.18}
+  #services .feature-grid,#applications .project-grid{gap:14px}
+  #services .feature{padding:18px}
+  #services .feature h3{font-size:20px}
+  #services .feature-media{max-height:180px}
+  #applications .project-image{min-height:200px}
+  #applications .project-copy{padding:18px}
+  #industries .industry-grid,#deliverables .industry-grid{grid-template-columns:1fr}
+  #industries .industry-grid article,#deliverables .industry-grid article{min-height:0;padding:18px}
+  #industries .industry-grid h3,#deliverables .industry-grid h3{margin:7px 0;font-size:19px}
+  #industries .industry-grid small,#deliverables .industry-grid small{margin-top:9px}
+  .mobile-collapsible:not(.mobile-expanded) > :nth-child(n+3){display:none!important}
+  #services .mobile-collapsible:not(.mobile-expanded) > :nth-child(n+3){display:none!important}
+  #applications .mobile-collapsible:not(.mobile-expanded) > :nth-child(n+2){display:none!important}
+  .mobile-reveal{display:flex;width:100%;justify-content:center;align-items:center;min-height:44px;margin:15px 0 0;padding:10px 14px;border:1px solid #78949e;border-radius:7px;background:transparent;color:inherit;font:700 13px Manrope,system-ui,sans-serif;cursor:pointer}
+  .mobile-reveal:focus-visible{outline:3px solid #40e6c4;outline-offset:3px}
+  .section-cta{margin-top:18px}
+  .workflow-compact{padding:30px 0}
+  .workflow-compact-grid{gap:14px}
+  .about,.quote{padding-top:42px;padding-bottom:42px}
+  #quote .booking-card{margin:15px 0}
+}
+@media(min-width:761px){.mobile-reveal{display:none!important}}
+@media(max-width:760px){.mobile-group-services:not(.mobile-expanded)>:nth-child(n+3),.mobile-group-industries:not(.mobile-expanded)>:nth-child(n+3),.mobile-group-deliverables:not(.mobile-expanded)>:nth-child(n+3){display:none!important}.mobile-group-examples:not(.mobile-expanded)>:nth-child(n+2){display:none!important}}
