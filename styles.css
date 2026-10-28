@@ -458,3 +458,38 @@ footer{font-size:13px}
 }
 @media(min-width:761px){.mobile-reveal{display:none!important}}
 @media(max-width:760px){.mobile-group-services:not(.mobile-expanded)>:nth-child(n+3),.mobile-group-industries:not(.mobile-expanded)>:nth-child(n+3),.mobile-group-deliverables:not(.mobile-expanded)>:nth-child(n+3){display:none!important}.mobile-group-examples:not(.mobile-expanded)>:nth-child(n+2){display:none!important}}
+
+/* Quality pass, Oct 28 2026: mobile information density and keyboard usability */
+:where(#services,#applications,#industries,#deliverables,#quote){scroll-margin-top:100px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #40e6c4;outline-offset:3px}
+@media(max-width:760px){
+  /* Keep the entire service explanation, but present the first two items as compact rows. */
+  #services .feature-grid .feature{
+    display:grid;grid-template-columns:19px minmax(0,1fr) 92px;grid-template-rows:auto;
+    align-items:start;column-gap:9px;row-gap:4px;min-height:0;padding:13px;border-radius:9px;
+  }
+  #services .feature-grid .feature>.num{grid-column:1;grid-row:1;margin-top:3px}
+  #services .feature-grid .feature>div:not(.feature-media){grid-column:2;grid-row:1;min-width:0}
+  #services .feature-grid .feature>.feature-media{
+    grid-column:3;grid-row:1;width:92px;height:92px;aspect-ratio:1;margin:0;
+    border-radius:6px;overflow:hidden;
+  }
+  #services .feature-grid .feature .feature-media img{width:100%;height:100%;object-fit:cover}
+  #services .feature-grid .feature h3{font-size:17px;line-height:1.2;margin:2px 0 6px}
+  #services .feature-grid .feature p:not(.tag){font-size:12.75px;line-height:1.45}
+  #services .feature-grid .feature .tag{font-size:9px!important;letter-spacing:.08em}
+  #services .feature-media-label{font-size:8px;letter-spacing:0;left:3px;bottom:3px;padding:3px}
+  #services .section-cta,#deliverables .section-cta{padding:16px;gap:12px;align-items:stretch}
+  #services .section-cta .btn,#deliverables .section-cta .btn{width:100%;text-align:center}
+  .mobile-reveal{border-color:#507580;letter-spacing:.025em}
+  .mobile-reveal:hover{background:rgba(95,135,149,.12)}
+}
+@media(max-width:380px){
+  #services .feature-grid .feature{grid-template-columns:16px minmax(0,1fr) 70px;gap:7px}
+  #services .feature-grid .feature>.feature-media{width:70px;height:80px}
+  #services .feature-grid .feature h3{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
