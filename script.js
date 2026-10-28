@@ -211,11 +211,7 @@ quoteForm?.addEventListener('submit', (event) => {
     project_type: projectTypeValue,
     service_page: servicePage
   });
-  trackEvent('generate_lead', {
-    lead_source: 'website_project_request',
-    project_type: projectTypeValue,
-    service_page: servicePage
-  });
+  // Preparing an email is an intent signal, not a confirmed submitted lead.
 
   const status = quoteForm.querySelector('.form-status');
   if (status) status.textContent = 'Opening your email app with the project details…';
