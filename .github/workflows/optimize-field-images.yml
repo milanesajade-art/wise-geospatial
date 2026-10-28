@@ -1,0 +1,48 @@
+name: Build responsive field imagery
+on:
+  push:
+    paths:
+      - '.github/workflows/optimize-field-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-webp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image tools
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Create local optimized images
+        shell: bash
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageOps
+          from pathlib import Path
+          images={
+              'wise-uas-field-capture.jpg': [(640,74),(1280,77)],
+              'wise-construction-progress.jpg':[(960,75)],
+          }
+          for filename,variants in images.items():
+              source=Path('assets')/filename
+              with Image.open(source) as img:
+                  base=ImageOps.exif_transpose(img).convert('RGB')
+                  for width,q in variants:
+                      scaled=base.copy()
+                      scaled.thumbnail((width,width*2),Image.Resampling.LANCZOS)
+                      target=source.with_name(f"{source.stem}-{width}.webp")
+                      scaled.save(target,format='WEBP',quality=q,method=6)
+                      print(f"{target}: {target.stat().st_size:,} bytes")
+          PY
+      - name: Commit generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/wise-uas-field-capture-640.webp assets/wise-uas-field-capture-1280.webp assets/wise-construction-progress-960.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Create lightweight, first-party responsive field imagery"
+            git push
+          fi
