@@ -408,3 +408,12 @@ footer{font-size:13px}
 .feature-media-label{position:absolute;z-index:1;left:16px;bottom:14px;padding:6px 9px;border:1px solid rgba(255,255,255,.28);background:rgba(7,20,27,.85);color:#edf3f5;font-size:.75rem;font-weight:700;letter-spacing:.06em}
 
 .project-image video.project-video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#061018}.project-image .video-badge{top:16px;bottom:auto;left:16px;pointer-events:none}
+
+/* Technical deliverables: accessible light-section cards */
+.deliverables-section .industry-grid{border-color:#c9d6dc}
+.deliverables-section .industry-grid article{border-color:#c9d6dc}
+.deliverables-section .industry-grid h3{color:#132d38}
+.deliverables-section .industry-grid p{color:#536973}
+.deliverables-section .industry-grid article>span,.deliverables-section .industry-grid small{color:#567782}
+.deliverables-section .industry-link{color:#126c79}
+.deliverables-section .demo-note{margin-top:24px}
