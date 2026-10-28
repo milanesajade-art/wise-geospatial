@@ -493,3 +493,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* Final mobile hero calibration: override inherited desktop spacing. */
+@media(max-width:760px){
+  body.home-page .hero{min-height:0;padding:26px 0 24px}
+  body.home-page .hero-content{padding:0;gap:18px}
+  body.home-page .hero h1{margin:0 0 10px}
+  body.home-page .hero-copy{margin:10px 0 0}
+  body.home-page .hero-actions{margin:17px 0 14px}
+  body.home-page .credential-row{margin-top:0;gap:8px}
+}
