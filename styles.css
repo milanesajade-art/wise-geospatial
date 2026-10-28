@@ -503,3 +503,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   body.home-page .hero-actions{margin:17px 0 14px}
   body.home-page .credential-row{margin-top:0;gap:8px}
 }
+
+/* Mobile legibility: avoid iOS input auto-zoom and undersized descriptions. */
+@media(max-width:760px){
+  #services .feature-grid .feature p:not(.tag){font-size:14px;line-height:1.5}
+  #services .feature-grid .feature .tag{font-size:10px!important}
+  body.home-page .hero-actions .btn{font-size:14px}
+  input,select,textarea{font-size:16px!important}
+}
